@@ -11,6 +11,8 @@
 # Linear Search Algorithm
 #----------------------------------------------------------
 #Linear search, also known as sequential search, is a method for finding a target value within a list. It operates by examining each element in the list one by one, in sequential order, until either a match is found or the end of the list is reached. If the target value is found, the search typically returns the index of the element. If the target value is not in the list, the search may return a specific value (e.g., -1) or raise an exception to indicate that the element was not found.
+# user case
+# works well un-sorted array
 #----------------------------------------------------------
 
 cards = [9,8,7,6,5,4,3,2]
