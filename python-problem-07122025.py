@@ -1,140 +1,67 @@
-def reverseStr(mainStr):
-    if mainStr:
-        return mainStr[::-1]
+def sqrt(i: int) -> int:
+    if not i:
+        print('empty input')
+        return i
+
+    loop = i // 2
+    begin = 0
+    end = loop - 1
+    count = 1
+    while begin <= end:
+        middle = (begin + end) // 2
+        # print(f'loop count {count} and {middle}')
+        sqrtVal = middle * middle
+        if sqrtVal == i:
+            print(f'found the root value {middle}')
+            return middle
+        elif sqrtVal < i:
+            begin = middle + 1
+        else:
+            end = middle - 1
+        count += 1
+    return -1
 
 
-def occurrenceChar(chars, occrChar):
-    if chars != '':
-        return chars.count(occrChar)
+# for i in range(1, 101):
+#     print(f'{i = } {sqrt(i) = }')
 
 
-def subStringExist(mainStr: str, subStr: str):
-    if mainStr != '' and subStr != '':
-        return subStr in mainStr
+# print(f'{sqrt(0)=}')
+
+# #########################################################################################
+# pseudo code
+# 1. Ugly Number
+# 2. Super Ugly Number (Advanced)
+#
+# 3. Digital Sum / Digital Root
+# write a recursive function check if digits greater than 1 then sum then ex input = 256 then 2+5+6 = 17 again call recursive with 17 =
+
+# 4. Happy Number
+# write recursive function that accept argument and loop the digits and do a multiply by itself and sumup and
+# return the value if its equal to 1 then its happy number else unhappy
+# question how to terminate infinite loop? --> have set and check if same sum is repeated then terminate
+
+#
+# 5. Sum of Digits of n! 5 1,2,3,4,5
+# range given numbers into list ex. i = 3 inputVal = [1,2,3]
+# loop list and result = result * i
+# another loop for val in result then finalResult += result
+
+def digitalRoot(inputVal: int) -> int:
+    def sumDigits(n: int):
+        total = 0
+        while n > 0:
+            digit = n % 10
+            print(f'{digit=}')
+            total += digit
+            n = n // 10
+        return total
+
+    if inputVal < 10:
+        return inputVal
+
+    return digitalRoot(sumDigits(inputVal))
 
 
-def extractFirstAndLastChar(mainStr: str):
-    if mainStr:
-        print(mainStr[0], mainStr[-1])# print(mainStr[0], mainStr[-1], sep="*")
-
-
-def splitString(mainStr, splitCount):
-    if mainStr is not None:
-        mainSplit = mainStr.split()
-        return mainSplit[:splitCount]
-
-
-def findVowels(mainStr: str):
-    vowels = 'aeiou'
-    vowelsOutput = []
-    for char in mainStr:
-        if char in vowels:
-            vowelsOutput.append(char)
-
-    return vowelsOutput
-
-
-def removeSpace(mainStr: str):
-    if mainStr is not None:
-        return mainStr.replace(" ", "")
-
-
-def countWords(mainStr: str):
-    if mainStr is not None:
-        return len(mainStr.split(' '))
-
-
-def findPosition(mainStr: str, findStr: str):
-    if mainStr is not None:
-        return mainStr.find(findStr)
-
-
-def replaceWord(mainStr: str, oldStr: str, newStr: str):
-    if mainStr is not None and oldStr is not None and newStr is not None:
-        return mainStr.replace(oldStr, newStr)
-
-
-def evenNumber(n: int) -> list: # list comprehension
-    return [number for number in range(1, n + 1) if number % 2 == 0]
-
-def checkStringPalindrome(mainStr: str) -> bool:
-    if mainStr:
-        len(mainStr)/2
-    return False
-
-def countVowelAndConsonant(mainStr: str):
-    vowels = 'aeiou'
-    vowelsCount = 0
-    if mainStr:
-        for value in mainStr:
-            if vowels.find(value) != -1:
-                vowelsCount += 1
-        print(f'total count {len(mainStr)} and {vowelsCount =} and consonant {len(mainStr) - vowelsCount}')
-
-def checkAnagram(arg1: str, arg2: str):
-    if arg1 and arg2 and len(arg1) == len(arg2):
-        isAnagram = True
-        for a1 in arg1:
-            if isAnagram and a1 not in arg2:
-                isAnagram = False
-        print(f'given {arg1=} and {arg2=} is an anagram')
-    else:
-        print(f'given {arg1=} and {arg2=} is not anagram')
-
-def removeDuplicate(mainStr: str):
-    if mainStr:
-        mainStrList = set(mainStr)
-        print(f'{mainStrList.__str__()=}')
-
-
-def findNonRepeatingCharacter(mainStr: str) -> str:
-    if mainStr:
-        # application
-        for i in range(len(mainStr)):
-            unique = True
-            for j in range(len(mainStr)):
-                if i != j and mainStr[i] == mainStr[j]:
-                    unique = False
-                    break
-
-            if unique:
-                return mainStr[i]
-
-print(f'{findNonRepeatingCharacter('applicant') =}')
-
-
-output = reverseStr('Python')
-print('reverseStr:', output)
-
-output1 = occurrenceChar('banana', 'a')
-print('occurrence char: ', output1)
-
-output2 = subStringExist('data science is fun', 'data')
-print(f'subStringExist: {output2}')
-
-output3 = extractFirstAndLastChar('')
-print(f'extractFirstAndLastChar: {output3}')
-
-output4 = splitString('Python is an amazing language', 3)
-print(f'splitString: {output4}')
-
-output5 = findVowels('intelligence')
-print(f'intelligence: {output5}')
-
-output6 = removeSpace('Space removal test')
-print(f'removeSpace {output6}')
-
-output7 = countWords('Python is a high level language')
-print(f'countWords: {output7}')
-
-output8 = findPosition('The cat sat on the mat', 'cat')
-print(f'findPosition {output8}')
-
-output9 = replaceWord('That is a bad idea', 'bad', 'good')
-print(f'replaceWord: {output9=}')
-
-countVowelAndConsonant('welcome to python')
-
-checkAnagram('abcd', 'dabc')
-
-removeDuplicate('hello python')
+resultDigit = digitalRoot(12345)
+print(f'{resultDigit=}')
