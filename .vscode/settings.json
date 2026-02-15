@@ -1,0 +1,11 @@
+{
+    "jupyter.debugJustMyCode": false,
+    "python.terminal.executeInFileDir": true,
+    "python.linting.enabled": true,
+    "[python]": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "ms-python.python"
+    },
+    "notebook.lineNumbers": "on",
+    "notebook.formatOnSave.enabled": true
+}
